@@ -1,0 +1,14 @@
+services:
+  app:
+    image: zavorotnyi/lesson4:v1.0
+    ports: 
+      - "8000:8000"
+    environment:
+      APP_STORE: "redis"
+      APP_REDIS_URL: "redis://redis:6379/0"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    
