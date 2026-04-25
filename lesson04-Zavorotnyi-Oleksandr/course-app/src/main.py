@@ -564,6 +564,7 @@ def readyz():
 @app.get("/api/info")
 def info():
     hostname = socket.gethostname()
+    APP_VERSION = os.getenv("APP_VERSION", "1")
     return {
         "app": "course-app",
         "hostname": hostname,
@@ -575,6 +576,7 @@ def info():
         "message": APP_MESSAGE,
         "secret_token_present": bool(SECRET_TOKEN),
         "env": {k: v for k, v in os.environ.items() if k.startswith("APP_")},
+        "version": APP_VERSION
     }
 
 
