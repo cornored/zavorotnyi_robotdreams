@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: courseapp-deployment
 spec:
-  replicas: 1
+  replicas: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
   selector:
     matchLabels:
       app: courseapp
@@ -14,6 +19,9 @@ spec:
     spec:
       containers:
         - name: courseapp
-          image: ashomni/course-app:v1.0
+          image: ashomni/course-app:v1.1
           ports:
             - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: courseapp-config
