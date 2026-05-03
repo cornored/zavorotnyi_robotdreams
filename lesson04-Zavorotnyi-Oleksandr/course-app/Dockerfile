@@ -11,4 +11,5 @@ RUN mkdir -p /app/data
 
 EXPOSE 8000
 
+ENV APP_VERSION=2
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
