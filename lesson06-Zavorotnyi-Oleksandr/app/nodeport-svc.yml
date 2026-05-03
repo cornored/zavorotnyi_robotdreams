@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: courseapp-nodeport
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: courseapp
   ports:
     - name: http
       port: 8000           # service port
       targetPort: 8000     # pod port
-      nodePort: 32000      # node port
