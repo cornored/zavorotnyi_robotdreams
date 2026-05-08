@@ -8,6 +8,12 @@ nodes:
       - containerPort: 32000
         hostPort: 32000
         protocol: TCP
+      - containerPort: 30080
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 30443
+        hostPort: 443
+        protocol: TCP
       # - containerPort: 31000
       #   hostPort: 31000
       #   protocol: TCP
