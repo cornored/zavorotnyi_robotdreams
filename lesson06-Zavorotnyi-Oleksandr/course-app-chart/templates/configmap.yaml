@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+
+data:
+  APP_VERSION: "{{ .Values.appConfig.version }}"
+  APP_STORE: "{{ .Values.appConfig.store }}"
+  APP_REDIS_URL: "{{ .Values.appConfig.redisUrl }}"
