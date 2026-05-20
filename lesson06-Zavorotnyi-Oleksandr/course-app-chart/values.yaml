@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: ashomni/course-app
+  tag: v1.1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: traefik
+  host: course-app.local
+  tls:
+    enabled: true
+    secretName: courseapp-tls
+
+appConfig:
+  version: "v1.1"
+  store: redis
+  redisUrl: redis://redis-master:6379
